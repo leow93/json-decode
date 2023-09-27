@@ -12,7 +12,12 @@
     "type": "git",
     "url": "github.com/leow93/json-decode.git"
   },
-  "keywords": [],
+  "keywords": [
+    "codec",
+    "json",
+    "serde",
+    "deserialization"
+  ],
   "author": "Leo Wheelan",
   "license": "MIT",
   "devDependencies": {
