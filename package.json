@@ -1,7 +1,7 @@
 {
   "name": "json-decode",
   "version": "0.0.1",
-  "description": "",
+  "description": "A library for decoding JSON in JS",
   "main": "index.js",
   "scripts": {
     "test": "jest",
@@ -12,7 +12,12 @@
     "type": "git",
     "url": "github.com/leow93/json-decode.git"
   },
-  "keywords": [],
+  "keywords": [
+    "codec",
+    "json",
+    "serde",
+    "deserialization"
+  ],
   "author": "Leo Wheelan",
   "license": "MIT",
   "devDependencies": {
