@@ -8,8 +8,12 @@
     "typecheck": "tsc --noEmit",
     "build": "swc ./src -d dist --no-swcrc --config-file .swcrc.build"
   },
+  "repository": {
+    "type": "git",
+    "url": "github.com/leow93/json-decode.git"
+  },
   "keywords": [],
-  "author": "leow93",
+  "author": "Leo Wheelan",
   "license": "MIT",
   "devDependencies": {
     "@swc/cli": "^0.1.62",
