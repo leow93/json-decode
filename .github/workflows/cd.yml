@@ -30,7 +30,6 @@ jobs:
         run: |
           pnpm build
           cp package.json dist/package.json
-          pnpm publish dist --access public
 
       - name: Set version to release tag
         shell: bash
