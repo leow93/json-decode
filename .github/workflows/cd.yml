@@ -40,6 +40,7 @@ jobs:
           NPM_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
            cp package.json dist/package.json
+           echo "//npm.pkg.github.com/:_authToken=$NPM_TOKEN" >> .npmrc
            pnpm publish dist --access restricted --no-git-checks
 
       - name: Push version changes to main branch
