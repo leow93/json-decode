@@ -30,5 +30,4 @@ jobs:
         run: |
           pnpm build
           cp package.json dist/package.json
-          cp src/index.d.ts dist/index.d.ts  
           pnpm publish dist --access public
