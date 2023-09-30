@@ -1,6 +1,6 @@
 {
   "name": "@leow93/json-decode",
-  "version": "0.0.9",
+  "version": "0.0.10",
   "description": "A library for decoding JSON in JS",
   "main": "index.js",
   "scripts": {
