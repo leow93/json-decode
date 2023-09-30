@@ -37,10 +37,10 @@ jobs:
       - name: Publish
         shell: bash
         env:
-          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NPM_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
            cp package.json dist/package.json
-           pnpm publish dist --access private --no-git-checks
+           pnpm publish dist --access restricted --no-git-checks
 
       - name: Push version changes to main branch
         uses: stefanzweifel/git-auto-commit-action@v4
