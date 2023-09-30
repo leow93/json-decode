@@ -1,28 +1,29 @@
-declare module 'json-decode' {
+declare module "json-decode" {
   export type Decoder<T> = (json: any) => T;
 
-  export class DecoderError extends Error {}
+  export class DecoderError extends Error {
+  }
 
   export function array<T>(decoder: Decoder<T>): Decoder<T[]>;
 
-  export function bigint(json: any): bigint;
+  export const bigint: Decoder<bigint>;
 
-  export function bool(json: any): boolean;
+  export const bool: Decoder<boolean>;
 
-  export function int(json: any): number;
+  export const int: Decoder<number>;
 
   export function field<K extends string, T>(
     key: K,
-    decode: Decoder<T>,
+    decode: Decoder<T>
   ): Decoder<T>;
 
-  export function number(json: any): number;
+  export const number: Decoder<number>;
 
-  export function float(json: any): number;
+  export const float: Decoder<number>;
 
   export function nullable<T>(decoder: Decoder<T>): Decoder<T | null>;
 
   export function optional<T>(decoder: Decoder<T>): Decoder<T | undefined>;
 
-  export function string(json: any): string;
+  export const string: Decoder<string>;
 }
