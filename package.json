@@ -12,6 +12,9 @@
     "type": "git",
     "url": "github.com/leow93/json-decode.git"
   },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  },
   "keywords": [
     "codec",
     "json",
