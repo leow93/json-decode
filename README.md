@@ -1,5 +1,7 @@
 # json-decode
 
+## 
+
 json-decode is a small library built to help decode unknown data into known types.
 
 The concept of serialisation/deserialisation is baked into many real languages but unfortunately not into JavaScript.
@@ -12,17 +14,17 @@ json-decode exists to help us validate those assumptions at runtime.
 
 #### With pnpm
 ```shell
-pnpm install json-decode
+pnpm install @leow93/json-decode
 ```
 
 #### With yarn 
 ```shell
-yarn install json-decode
+yarn install @leow93/json-decode
 ```
 
 #### With npm
 ```shell
-npm install json-decode
+npm install @leow93/json-decode
 ```
 
 ## Usage 
