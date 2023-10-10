@@ -37,7 +37,7 @@ jobs:
       - name: Publish
         shell: bash
         env:
-          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: |
            cp package.json dist/package.json
            echo "//npm.pkg.github.com/:_authToken=$NPM_TOKEN" >> .npmrc
