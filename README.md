@@ -14,17 +14,17 @@ json-decode exists to help us validate those assumptions at runtime.
 
 #### With pnpm
 ```shell
-pnpm install @leow93/json-decode
+pnpm install json-decode
 ```
 
 #### With yarn 
 ```shell
-yarn install @leow93/json-decode
+yarn install json-decode
 ```
 
 #### With npm
 ```shell
-npm install @leow93/json-decode
+npm install json-decode
 ```
 
 ## Usage 
