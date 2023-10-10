@@ -8,6 +8,8 @@ jobs:
   deploy:
     name: Deploy
     runs-on: ubuntu-latest
+    env:
+      NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
     steps:
       - name: Checkout
         uses: actions/checkout@v2
@@ -37,11 +39,9 @@ jobs:
 
       - name: Publish
         shell: bash
-        env:
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: |
            cp package.json dist/package.json
-           pnpm publish dist --access restricted --no-git-checks
+           pnpm publish dist --access public --no-git-checks
 
       - name: Push version changes to main branch
         uses: stefanzweifel/git-auto-commit-action@v4
