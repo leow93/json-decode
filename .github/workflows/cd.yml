@@ -16,6 +16,7 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version-file: '.nvmrc'
+          registry-url: 'https://registry.npmjs.org'
 
       - name: Install pnpm
         uses: pnpm/action-setup@v2
@@ -40,7 +41,6 @@ jobs:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: |
            cp package.json dist/package.json
-           echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" >> .npmrc
            pnpm publish dist --access restricted --no-git-checks
 
       - name: Push version changes to main branch
