@@ -6,7 +6,7 @@
   "scripts": {
     "test": "vitest",
     "typecheck": "tsc --noEmit",
-    "build": "swc ./src -d dist --no-swcrc --config-file .swcrc.build && cp src/index.d.ts dist/index.d.ts && cp LICENSE dist/LICENSE"
+    "build": "sh ./scripts/build.sh"
   },
   "repository": {
     "type": "git",
