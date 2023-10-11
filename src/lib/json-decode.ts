@@ -114,3 +114,11 @@ export const nullable =
   <T>(decoder: Decoder<T>): Decoder<T | null> =>
   (json) =>
     json === null ? json : decoder(json);
+
+export const enumerator = <T>(enumType: T) => (json: unknown): T[keyof T] => {
+  const value = (enumType as any)[json as any];
+  if (value === undefined ) {
+    throw new DecoderError(`Expected enum value, got ${JSON.stringify(json)}`);
+  }
+  return value;
+}
