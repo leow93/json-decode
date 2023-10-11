@@ -25,3 +25,5 @@ export function nullable<T>(decoder: Decoder<T>): Decoder<T | null>;
 export function optional<T>(decoder: Decoder<T>): Decoder<T | undefined>;
 
 export const string: Decoder<string>;
+
+export const enumerator: <T>(enumObject: T) => Decoder<T[keyof T]>;

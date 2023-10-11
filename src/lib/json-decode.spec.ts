@@ -145,11 +145,11 @@ describe('enumerator', () => {
   describe('when the enum is a numeric enum', () => {
     enum Choice {
       carrot = 0,
-      stick =1
+      stick = 1
     }
 
     it('decodes the enum', () => {
-      expect(enumerator(Choice)('carrot')).toEqual(Choice.carrot);
+      expect(enumerator(Choice)(0)).toEqual(Choice.carrot);
     });
 
     it('throws when the value is not a member of the enum', () => {
@@ -164,12 +164,12 @@ describe('enumerator', () => {
       stick
     }
 
-    it('decodes the enum', () => {
-      expect(enumerator(Choice)('carrot')).toEqual(Choice.carrot);
+    it('decodes the enum using the value', () => {
+      expect(enumerator(Choice)(1)).toEqual(Choice.stick);
     });
 
     it('throws when the value is not a member of the enum', () => {
-      expect(() => enumerator(Choice)('banana')).toThrowError(DecoderError);
+      expect(() => enumerator(Choice)(3)).toThrowError(DecoderError);
     });
   });
 })

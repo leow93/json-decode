@@ -138,3 +138,28 @@ import { Decoder, array, field, number, string } from "json-decode";
 array(number)([1, 2, 3]); // [1, 2, 3]
 array(number)([1, 2, '3']); // throws a DecodeError
 ```
+
+### Decoding a TypeScript enum 
+
+```typescript
+import { enumerator } from "json-decode";
+
+enum Choice {
+  carrot = 'carrot',
+  stick = 'stick'
+}
+
+enumerator(Choice)('carrot'); // Choice.carrot
+enumerator(Choice)('stick'); // Choice.stick
+enumerator(Choice)('banana'); // throws a DecodeError
+
+enum Fruits {
+  apple, 
+  banana,
+  pear,
+}
+
+enumerator(Fruits)(0); // Fruits.apple
+enumerator(Fruits)(1) // Fruits.banana
+enumerator(Fruits)(3) // throws a DecodeError
+```

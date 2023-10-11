@@ -116,9 +116,14 @@ export const nullable =
     json === null ? json : decoder(json);
 
 export const enumerator = <T>(enumType: T) => (json: unknown): T[keyof T] => {
-  const value = (enumType as any)[json as any];
-  if (value === undefined ) {
+  const entries = Object.entries(enumType as any);
+  const entry = entries.find(([, v]) => v === json);
+  if (entry === undefined) {
     throw new DecoderError(`Expected enum value, got ${JSON.stringify(json)}`);
   }
-  return value;
+  const value = entry[1];
+  if (value === undefined) {
+    throw new DecoderError(`Expected enum value, got ${JSON.stringify(json)}`);
+  }
+  return value as T[keyof T];
 }
