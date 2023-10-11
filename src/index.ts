@@ -4,11 +4,12 @@ export {
   bool,
   Decoder,
   DecoderError,
+  enumerator,
   int,
   field,
   number,
   float,
   nullable,
   optional,
-  string
+  string,
 } from './lib/json-decode'

@@ -4,15 +4,15 @@ import {
   bigint,
   bool,
   Decoder,
-  DecoderError,
+  DecoderError, enumerator,
   field,
   float,
   int,
   nullable,
   number,
   optional,
-  string,
-} from './json-decode';
+  string
+} from "./json-decode";
 
 describe('bool', () => {
   it('decodes a boolean', () => {
@@ -124,6 +124,55 @@ describe('nullable', () => {
     expect(() => nullable(string)(123)).toThrowError(DecoderError);
   });
 });
+
+describe('enumerator', () => {
+
+  describe('when the enum is a string enum', () => {
+    enum Choice {
+      carrot = 'carrot',
+      stick = 'stick'
+    }
+
+    it('decodes the enum', () => {
+      expect(enumerator(Choice)('carrot')).toEqual(Choice.carrot);
+    });
+
+    it('throws when the value is not a member of the enum', () => {
+      expect(() => enumerator(Choice)('banana')).toThrowError(DecoderError);
+    });
+  });
+
+  describe('when the enum is a numeric enum', () => {
+    enum Choice {
+      carrot = 0,
+      stick = 1
+    }
+
+    it('decodes the enum', () => {
+      expect(enumerator(Choice)(0)).toEqual(Choice.carrot);
+    });
+
+    it('throws when the value is not a member of the enum', () => {
+      expect(() => enumerator(Choice)('banana')).toThrowError(DecoderError);
+    });
+  });
+
+
+  describe('when the enum has no values assigned', () => {
+    enum Choice {
+      carrot ,
+      stick
+    }
+
+    it('decodes the enum using the value', () => {
+      expect(enumerator(Choice)(1)).toEqual(Choice.stick);
+    });
+
+    it('throws when the value is not a member of the enum', () => {
+      expect(() => enumerator(Choice)(3)).toThrowError(DecoderError);
+    });
+  });
+})
 
 describe('decoding a complex object', () => {
   type Blob = {
